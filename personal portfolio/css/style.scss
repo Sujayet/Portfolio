@@ -1,0 +1,538 @@
+$body-color: #212529;
+$colorPrimary: #55e6a5;
+$bgColor: #09101a;
+$bodyBg: #02050a;
+$colorWhite: #ffffff;
+$colorBlack: #02050a;
+$ratingColor: #ffba08;
+$bodyColor: #a2a2a2;
+$logo-bg: #151c25;
+$PrimaryFont: "Poppins", sans-serif;
+$secondaryFont: "Open Sans", sans-serif;
+$h1Font: 50px;
+
+
+
+
+
+@mixin button{
+    padding: 1rem 3rem;
+    background-color: $colorPrimary;
+    color: $bodyBg;
+}
+
+@mixin hover{
+    background: $body-color;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .5s ease;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    font-family: $PrimaryFont;
+    background-color: $bodyBg;
+    color: $colorWhite;
+}
+ul{
+    list-style: none;
+}
+a{
+    display: inline-block;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+
+
+    .loader{
+        width: 100%;
+        height: 100%;
+        background-color: rgb(5, 3, 3);
+        color: #fff;
+        position: absolute;
+        text-align: center;
+    }
+
+    .loader #top-heading{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: .8rem;
+        font-weight: 600;
+    }
+    .loader h1{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-weight: 400;
+    }
+    .loader h1 {
+       color: #ff9900;
+       font-size: 4rem;
+    }
+    .loader .loading{
+        width: 100%;
+    }
+    .loading img{
+        position: absolute;
+        bottom: 10%;
+        animation: loadingD 1.5s 0.3s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+    }
+
+    @keyframes loadingD {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    
+    .repeat{
+        overflow: hidden;
+    }
+    .repeat .parent .child {
+       display: inline-block;
+       /* transform: translateY(50%); */
+    }
+
+    .green{
+        width: 100%;
+        height: 0;
+        background-color: #14CF93;
+        position: absolute;
+        top: 100%;
+    }
+}
+
+// .away{
+//     width: 100vw;
+//     height: 100vh;
+//     background: $body-color;
+//     z-index: 2;
+//     position: absolute;
+//     top: 0;
+// }
+p{
+    color: $bodyColor;
+    line-height: 28px;
+}
+
+// sidebar section
+
+.sidebar{
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: $logo-bg;
+    height: 100vh;
+    z-index: 10;
+    overflow: overlay;
+
+    .logo{
+        height: 100px;
+        width: 100%;
+        background: $body-color;
+    }
+    .content{
+        padding: 3rem 1rem;
+    }
+    a{
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+        color: $colorWhite;
+        text-transform: capitalize;
+        border-radius: 8px;
+        text-decoration: none;
+        p{
+            margin: 0;
+        }
+        .important{
+            padding-left: 5px !important;
+        }
+        .important-1{
+            padding-right: 5px !important;
+        }
+        i{
+            width: 60px;
+            background: #222831;
+            height: 60px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+    }
+}
+.sidebar a:hover .glow{
+    background: $colorPrimary;
+    color: $colorBlack;
+}
+
+.main-section{
+    margin-left: 250px;
+}
+
+.dragger{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $colorPrimary;
+    color: $bgColor;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+// .close{
+//     width: 100%;
+//     // margin-left: 250px;
+//     height: 50px;
+//     position: relative;
+// }
+.dragger-close{
+    position: absolute;
+    width: 25%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: $colorWhite;
+    font-size: 1.5rem;
+    top: 0;
+    right:0 ;
+    cursor: pointer;
+}
+.dragger-close:hover{
+    background-color: #585a59;
+}
+.myself{
+    background: url(..//img/banner.jpg);
+    background-position: center;
+    padding: 200px 0;
+    text-transform: uppercase;
+    h1{
+        font-size: $h1Font;
+        span{
+            color: $colorPrimary;
+            font-weight: 800;
+        }
+    }
+    .svg{
+        margin: 20% auto;
+        width: 260px;
+        height: 60px;
+    }
+    .text{
+        width: inherit;
+        height: 4rem;
+      }
+    .tp {
+        stroke-dasharray: 300;
+        stroke-dashoffset: 300;
+        fill-opacity: 0;
+    }
+    a{
+        @include button;
+    }
+    p{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.7;
+        margin-bottom: 60px;
+        color: $bodyColor;
+    }
+    .my-img-top{
+        position: relative;
+    }
+    img{
+        width: 100%;
+    }
+    .img-bord{
+        position: absolute;
+        top: -17px;
+        left: 0;
+    }
+}
+
+#about{
+    padding: 150px 0;
+    h5{
+        color: $colorPrimary;
+    }
+    .box{
+        margin-top: 80px;
+        p{
+            margin-top: 20px;
+        }
+    }
+    .my-position{
+        position: relative;
+    }
+    .box80{
+        width: 80%;
+        z-index: 2;
+    }
+    .tab{
+        position: absolute;
+        width: 50%;
+        top: 150px;
+        right: 5%;
+    }
+}
+
+#services{
+    .top1{
+        text-align: center;
+        padding: 1rem 0;
+    }
+    .top h4{
+        color:$colorPrimary ;
+        text-align: center;
+    }
+    .service-div{
+        width: 30%;
+        position: relative;
+        background-color: $bgColor;
+        margin: 0 1rem;
+        border-radius: 10px;
+    }
+    .text{
+        padding: 1.5rem 2rem;
+        // font-size: 1rem;
+    }
+    .my-text{
+        padding-top: 5rem;
+    }
+
+    .icon-div{
+        // width: 30%;
+        color: $colorBlack;
+        font-size: 4rem;
+        background-color: $colorPrimary;
+        position: absolute;
+        top: -15%;
+        left: 10%;
+        border-radius: 10px;
+    }
+    .icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        
+    }
+    .my-icon{
+        padding: 1rem 1.8rem;
+    }
+    
+}
+
+#education{
+    .row{
+        justify-content: space-between;
+        margin-bottom: 6rem;
+        .my-card{
+            border: 3px solid #191919;
+            padding: 2rem 15px;
+            background: transparent;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+            h5{
+                color: $colorWhite;
+                i{
+                    color: $colorPrimary;
+                    padding-right: 20px;
+                }
+            }
+            h4{
+                padding: 10px 0;
+            }
+            a{
+                @include button
+            }
+            a:hover{
+                @include hover;
+            }
+        }
+    }
+}
+
+
+#skills{
+    margin-bottom: 6rem;
+    span{
+        color: $colorPrimary;
+        font-weight: 800;
+        padding-right: 1rem;
+    }
+    .my-card{
+        background-color: none;
+    }
+    .box{
+        background-color: #151c25;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        position: relative;
+        .fill{
+            width: 0%;
+            height: 5px;
+            background-color: $colorPrimary;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        h4{
+            font-weight: 200;
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+#project{
+    img{
+        width: 100%;
+    }
+    text-align: center;
+    h3{
+        color: $colorPrimary;
+    }
+    .my-card{
+        position: relative;
+    }
+
+    .cover{
+        width: 100%;
+        height: 75%;
+        overflow: hidden;
+        opacity: 0;
+        background-color: #e2b2b2;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $colorBlack;
+        font-size: 1.5rem;
+        bottom: 0;
+        // z-index: 2;
+    }
+
+    .my-card:hover .cover{
+        opacity: 0.8;
+        // bottom: 100%;
+    }
+}
+
+
+#contact{
+    background-color: $colorBlack;
+    .box{
+        display: flex;
+        padding: 4rem 0;
+        .text{
+            padding-left: 1rem;
+            p{
+                display: inline-block;
+            }
+            a{
+                color: $colorWhite;
+            }
+            a:hover{
+                color: $colorPrimary;
+                text-decoration: none;
+            }
+        }
+        .icon{
+            svg{
+                width: 50px;
+                height: 50px;
+                background: $colorPrimary;
+                display: inline-block;
+                border-radius: 50%;
+                padding: 1rem;
+                box-sizing: content-box;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@keyframes seize{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}
+
+
+@media only screen and (max-width:1196px) {
+    .sidebar{
+        transform: translateX(-1000px);
+    }
+    .main-section{
+        margin: 0;
+    }
+    .myself .row{
+        flex-flow: column-reverse;
+        text-align: center;
+    }
+    .myself img{
+        width: 50%;
+        margin-bottom: 50px;
+    }
+    .myself .img-bord{
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+// @media only screen and (min-width:1196px) {
+//     .sidebar{
+//         transform: translateX(1000px);
+//     }
+   
+// }
+@media only screen and (max-width:500px) {
+    .tab{
+        top: 0;
+    }
+   
+}
